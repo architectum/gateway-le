@@ -1,0 +1,15 @@
+{
+  "name": "node",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "Yevhenii Ivanets",
+  "license": "MIT",
+  "scripts": {
+    "start": "node src/index.js "
+  },
+  "dependencies": {
+    "express": "4.13.3",
+    "redis": "2.3.1"
+  }
+}
