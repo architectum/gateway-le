@@ -1,9 +1,8 @@
 #### Infrastructure
 
-Docker compose config for proxy upstream node servers behind SSL ( Let's Encrypt ) Nginx on Debian Jessie. Personally I am not a huge Docker fan and err on the side of bash scripts and/or Lambda, but this may be valuable to you.
+Docker compose config for proxy upstream node servers behind SSL ( Let's Encrypt ) Nginx. 
 
 #### Stack:
-* debian/jessie
 * docker
 * nginx ( Let's Encrypt )
 * node
@@ -18,7 +17,7 @@ Docker compose config for proxy upstream node servers behind SSL ( Let's Encrypt
 ```
 #!/bin/bash
 
-. make.sh
+. host_docker.sh
 docker-compose build
 docker-compose up -d
 # install certs

@@ -4,21 +4,30 @@ var express = require('express'),
 
 var app = express();
 
-console.log(process.env.REDIS_PORT_6379_TCP_ADDR + ':' + process.env.REDIS_PORT_6379_TCP_PORT);
+console.log(process.env.REDIS_ADDR + ':' + process.env.REDIS_PORT);
 
 var client = redis.createClient(
-	process.env.REDIS_PORT_6379_TCP_PORT || '6379',
-  process.env.REDIS_PORT_6379_TCP_ADDR || 'redis'
+	process.env.REDIS_PORT || '6379',
+  process.env.REDIS_ADDR || '10.0.210.166'
 );
 
-app.get('/v4', function(req, res, next) {
-  client.incr('counter', function(err, counter) {
-    if(err) return next(err);
-    res.send('This page has been viewed ' + counter + ' times!');
-    console.log('hello');
+app.get('*', function(req, res, next) {
+  client.incr('api_v4_counter', function(err, counter) {
+    if(err) {
+      console.log(err);
+      return next(err);
+    }
+    const result = {
+      'status': 'ok',
+      'message': '',
+      'data': {
+        'redis_counter': counter
+      }
+    }
+    return res.send(JSON.stringify(result));
   });
 });
 
-http.createServer(app).listen(process.env.PORT || 8080, function() {
-  console.log('Listening on port ' + (process.env.PORT || 8080));
+http.createServer(app).listen(process.env.PORT || 3002, function() {
+  console.log('Listening on port ' + (process.env.PORT || 3002));
 });
