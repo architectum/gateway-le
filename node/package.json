@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "micro -l 0.0.0.0:3002 ./index.js",
+    "start": "micro -l tcp://0.0.0.0:3002 ./index.js",
     "dev": "micro-dev ./index.js"
   },
   "author": "",
