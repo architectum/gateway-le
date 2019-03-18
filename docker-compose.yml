@@ -17,4 +17,4 @@ services:
         build: ./node
         env_file: .env
         ports:
-            - "3000"
+            - "3002:3002"
