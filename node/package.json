@@ -1,19 +1,21 @@
 {
-  "name": "node",
-  "version": "0.0.0",
+  "name": "treatment-pipe",
+  "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "author": {
-    "name": "Yevhenii Ivanets",
-    "email": "evgeniyivanets@gmail.com",
-    "url": "https://github.com/ivanets"
-  },
-  "license": "MIT",
   "scripts": {
-    "start": "node index.js "
+    "start": "micro index.js",
+    "dev": "micro-dev index.js"
   },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "express": "4.13.3",
-    "redis": "2.3.1"
+    "jsonpath": "^1.0.1",
+    "micro": "^9.3.3",
+    "node-fetch": "^2.3.0",
+    "now-micro": "^0.3.0"
+  },
+  "devDependencies": {
+    "micro-dev": "^3.0.0"
   }
 }

@@ -3,6 +3,7 @@ version: '2'
 services:
     nginx:
         build: ./nginx
+        image: appotek/gateway
         env_file: .env
         ports:
             - "80:80"
@@ -12,6 +13,7 @@ services:
         volumes:
             - ./letsencrypt:/etc/letsencrypt
     node:
+        image: appotek/micromap
         build: ./node
         env_file: .env
         ports:
